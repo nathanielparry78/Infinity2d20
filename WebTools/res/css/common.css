@@ -1,0 +1,257 @@
+﻿.arrow-right {
+	width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid white;
+
+		-webkit-transform: rotate(0);
+		-moz-transform: rotate(0);
+		-o-transform: rotate(0);
+	transform: rotate(0);
+
+		-webkit-transition: all .2s ease;
+		-moz-transition: all .2s ease;
+		-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+.arrow-left {
+	transform: rotate(-180deg);
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Century Gothic';
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+    color: black !important;
+}
+
+input[type=submit] {
+    color: white !important;
+}
+
+input[type=radio],
+input[type=checkbox] {
+    width: 23px;
+    height: 23px;
+    border: 2px solid #e45e39;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+    input[type=radio]:checked,
+    input[type=checkbox]:checked {
+        background-color: #e45e39;
+        border: 2px solid #e45e39;
+    }
+
+    input[type=radio]:focus,
+    input[type=checkbox]:focus {
+        outline: 0;
+    }
+
+a,
+a:hover {
+    color: #5f643e;
+}
+
+.align-right {
+  float: right;
+}
+
+.content-container {
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+.content {
+    transition: margin-left linear .25s; /* should match .content-container-fullscreen transition */
+}
+
+.content-nudged {
+    /*margin-left: 320px;*/ /* Should match width of sheet-container */
+}
+
+.desc-text {
+    font-size: large;
+    padding: 4px;
+    font-weight: normal;
+    text-align: justify;
+}
+
+.header-small {
+    color: #f3a61e;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 50%;
+}
+
+.header-text {
+    color: white;
+    background-color: #e45e39;
+    padding: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    max-width: 800px;
+    margin-left: -5px;
+    margin-right: -5px;
+    text-transform: uppercase;
+    border-top: 1px solid darkorange;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.logo {
+    margin-top: 4px;
+}
+
+.option-header {
+    font-size: large;
+    color: #f3a61e;
+}
+
+.page-background {
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#page-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.page-text {
+    color: white;
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding: 4px;
+    font-weight: normal;
+    text-align: center;
+    max-width: 700px;
+}
+
+.panel {
+    background: linear-gradient(rgba(0, 0, 0, 0), #0c3956);
+    color: white;
+    opacity: 0.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border-bottom: 1px solid skyblue;
+    padding: 5px;
+}
+
+.panel div {
+    padding: 5px;
+}
+
+.path-choice {
+    display: inline-table;
+    width: 300px;
+    opacity: 0.8;
+    background: linear-gradient(rgba(0, 0, 0, 0), #0c3956);
+    border-radius: 15px 0px 15px 0px;
+    border-bottom: 1px solid skyblue;
+    padding: 10px;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.selection-header {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.shadow-box {
+    box-shadow: 0px 0px 10px #000;
+}
+
+.source-list {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.source-list > div {
+    display: inline-block;
+    width: 200px;
+    padding-top: 3px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    background-color: #0c3956;
+    border-radius: 8px;
+    text-align: left;
+    opacity: 0.8;
+}
+
+.source-name,
+.source-select {
+    display: inline-block;
+}
+    .source-name {
+        transform: translate(5px, -8px);
+    }
+
+table.selection-list {
+    width: 100%;
+}
+    table.selection-list td {
+        padding: 5px;
+        border-bottom: 1px solid #0c3956;
+    }
+
+table.aspect-list td:first-child {
+    width: 50%;
+}
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    .desc-text {
+        font-size: small;
+    }
+
+    .header-text {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 280px;
+    }
+
+    table.selection-list td {
+        font-size: x-small; 
+    }
+}
