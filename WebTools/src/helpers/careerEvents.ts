@@ -709,7 +709,7 @@ export class CareerEvents {
                     "IQ-Doppleganger",
                     "Due to what’s claimed to be a clerical error, your stored personality back-up is placed in a Lhost. Your IQ-doppelganger disappears before the error can be corrected."));
             case 17: {
-                const attribute = Math.floor(Math.random() * character.attributes.length) + 1;
+                const attribute = Math.floor(Math.random() * character.attributes.length);
                 const attr = Attribute[attribute];
 
                 return new CareerEventModel(new EventModel(

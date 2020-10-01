@@ -136,7 +136,7 @@ class Tribes {
 
         for (var t in this._tribes) {
             const tr = this._tribes[t];
-            if (tr.roll <= roll) {
+            if (roll <= tr.roll) {
                 tribe = n;
                 break;
             }
