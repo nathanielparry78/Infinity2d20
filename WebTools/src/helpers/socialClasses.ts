@@ -368,6 +368,7 @@ export class SocialClasses {
                             case HeritageTraits.Vagrant: cls = SocialClass.Underclass; break;
                             case HeritageTraits.Tunguskan: cls = SocialClass.Demogrant; break;
                         }
+                        break;
                     }
                     case 3:
                     case 4: {
@@ -379,6 +380,7 @@ export class SocialClasses {
                             case HeritageTraits.Corregidoran:
                             case HeritageTraits.Vagrant: cls = SocialClass.Underclass; break;
                         }
+                        break;
                     }
                     case 5:
                     case 6: {
@@ -390,6 +392,7 @@ export class SocialClasses {
                             case HeritageTraits.Lub:
                             case HeritageTraits.Vagrant: cls = SocialClass.Demogrant; break;
                         }
+                        break;
                     }
                     case 7:
                     case 8: {
@@ -401,6 +404,7 @@ export class SocialClasses {
                             case HeritageTraits.Vagrant: cls = SocialClass.Middle; break;
                             case HeritageTraits.Tunguskan: cls = SocialClass.Upper; break;
                         }
+                        break;
                     }
                     case 9:
                     case 10: {
@@ -412,6 +416,7 @@ export class SocialClasses {
                             case HeritageTraits.Lub:
                             case HeritageTraits.Vagrant: cls = SocialClass.Middle; break;
                         }
+                        break;
                     }
                     case 11: {
                         switch (character.heritageTrait) {
@@ -422,6 +427,7 @@ export class SocialClasses {
                             case HeritageTraits.Lub: cls = SocialClass.Upper; break;
                             case HeritageTraits.Vagrant: cls = SocialClass.Middle; break;
                         }
+                        break;
                     }
                     case 12: {
                         switch (character.heritageTrait) {
@@ -432,6 +438,7 @@ export class SocialClasses {
                             case HeritageTraits.Lub: cls = SocialClass.Elite; break;
                             case HeritageTraits.Vagrant: cls = SocialClass.Upper; break;
                         }
+                        break;
                     }
                 }
             }

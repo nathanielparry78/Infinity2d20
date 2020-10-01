@@ -6,6 +6,7 @@ export class News {
             "- Fixed a bug that prevented progress when rolling/selecting the Haqqislam 'ideals' career event.<br/>"+
             "- Fixed a bug that prevented progress when rolling/selecting the PanOceania 'cybernetic limb' adolescence event.<br/>"+
             "- Fixed a bug that prevented progress when selecting certain Uplift Host Types.<br/>"+
+            "- Fixed a bug that caused the application to freeze when selecting a Youth Event as a Nomad character.<br/>"+
             "";
     }
 }
