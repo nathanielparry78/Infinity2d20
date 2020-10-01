@@ -1184,7 +1184,7 @@ export class CareerEvents {
                     "You’re forced to choose between your ideals and keeping your job. Either become Fired or reduce your Status by 1.",
                     "Idealistic Choice",
                     "You’re forced to choose between your ideals and keeping your job.",
-                    "PayStatusToContinue" // TODO
+                    "PayStatusToContinue"
                 ));
             case 4:
                 return new CareerEventModel(new EventModel(

@@ -43,6 +43,7 @@ import { SocialReductionOrDebtEvent } from '../events/socialReductionOrDebtEvent
 import { TunguskanEliteEvent } from '../events/tunguskanEliteEvent';
 import { IncreaseOneAttributeEvent } from '../events/increaseOneAttributeEvent';
 import { IncreaseGeistSkillsEvent } from '../events/increaseGeistSkillsEvent';
+import { ReduceStatusOrFiredEvent } from '../events/reduceStatusOrFired';
 
 export class EventDetailsPage extends React.Component<IPageProperties, {}> {
     constructor(props: IPageProperties) {
@@ -209,6 +210,9 @@ export class EventDetailsPage extends React.Component<IPageProperties, {}> {
         }
         else if (event.detailView === "IncreaseOneAttribute") {
             page = (<IncreaseOneAttributeEvent />);
+        }
+        else if (event.detailView === "PayStatusToContinue") {
+            page = (<ReduceStatusOrFiredEvent />);
         }
 
         return (
