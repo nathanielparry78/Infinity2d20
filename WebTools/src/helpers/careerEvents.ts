@@ -291,9 +291,9 @@ export class CareerEvents {
                     return this.generateEvent();
                 }
                 return new CareerEventModel(new EventModel(
-                    "Both the authorities and organised crime are hunting for you. What do you know, or what have you got that they want? know, or what have you got that they want? Gain both a criminal enemy and a police enemy. You must pass an Average(D1) hazard test for your current career or you are Fired.",
+                    "Both the authorities and organised crime are hunting for you. What do you know, or what have you got that they want? Gain both a criminal enemy and a police enemy. You must pass an Average(D1) hazard test for your current career or you are Fired.",
                     "",
-                    "Both the authorities and organised crime are hunting for you. What do you know, or what have you got that they want? know, or what have you got that they want? You have a criminal enemy and a police enemy.",
+                    "Both the authorities and organised crime are hunting for you. What do you know, or what have you got that they want? You have a criminal enemy and a police enemy.",
                     "HazardTestOrFired"));
             case 3:
                 return new CareerEventModel(new EventModel(
