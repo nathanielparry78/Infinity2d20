@@ -27,9 +27,11 @@ export class CyberneticLegOrArmEvent extends React.Component<{}, {}> {
 
     private onArm() {
         character.addEquipment("Cybernetic Arm");
+        Navigation.navigateToPage(PageIdentity.AfterEvent);
     }
 
     private onLeg() {
         character.addEquipment("Cybernetic Leg");
+        Navigation.navigateToPage(PageIdentity.AfterEvent);
     }
 }
