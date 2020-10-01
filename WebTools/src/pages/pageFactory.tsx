@@ -40,6 +40,7 @@ import { TalentsOverviewPage } from './talentsOverviewPage';
 import { UpliftHostPage } from './upliftHostPage';
 import { AwakeningEventPage } from './awakeningEventsPage';
 import { AwakeningEventDetailsPage } from './awakeningEventDetailsPage';
+import { UpliftHostDetailsPage } from './upliftHostDetailsPage';
 
 export enum PageIdentity {
     PathSelection,
@@ -167,6 +168,7 @@ export class PageFactory {
         this.factories[PageIdentity.AlepForms] = () => <AlephFormPage/>;
         this.factories[PageIdentity.AlephDetails] = () => <AlephDetailsPage />;
         this.factories[PageIdentity.UpliftHosts] = () => <UpliftHostPage />;
+        this.factories[PageIdentity.UpliftHostDetails] = () => <UpliftHostDetailsPage />;
         this.factories[PageIdentity.AwakeningEvent] = () => <AwakeningEventPage />;
         this.factories[PageIdentity.AwakeningEventDetails] = () => <AwakeningEventDetailsPage />;
         this.factories[PageIdentity.TalentsOverview] = () => <TalentsOverviewPage />;
