@@ -2,7 +2,7 @@
 import {character} from '../common/character';
 import {Navigation} from '../common/navigator';
 import {Button} from '../components/button';
-import {DropDownInput} from '../components/DropDownInput';
+import {DropDownInput} from '../components/dropDownInput';
 import {PageIdentity} from '../pages/pageFactory';
 
 interface ISelectWeaponEventProperties {

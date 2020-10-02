@@ -231,7 +231,7 @@ export class CareerEvents {
             if (character.isUplift()) {
                 events["Uplift"] = [];
 
-                for (var i = 1; i < 20; i++) {
+                for (var i = 1; i < 19; i++) {
                     let ev = this.rollOnUpliftTable(i, character.isUnemployed());
                     ev.table = "Uplift";
                     events["Uplift"].push(ev);
@@ -1692,7 +1692,8 @@ export class CareerEvents {
                     "",
                     "You spend some time on assignment with Corregidor . Did you make any friends? Enemies? You have a contact on Corregidor.",
                     "IncreaseExtraplanetary"));
-            case 13: {
+            case 13:
+            case 20: {
                 const assets = DiceRoller.rollSpecial(4, 4).hits;
 
                 return new CareerEventModel(new EventModel(
@@ -1707,6 +1708,7 @@ export class CareerEvents {
                     "",
                     "Caught in the same firefight, you’re saved by a Reverend Healer-Killer. After some tense discussion on whether or not Uplifts have a soul, you think you hit it off. Gain a contact in the Observance of Saint Mary the Knife."));
             case 15:
+            case 19:
                 return new CareerEventModel(new EventModel(
                     "As someone who underwent an Awakening, you can’t help but notice that your geist is asking increasingly self-aware questions. Your Geist's Awareness and Intelligence are increased by 2.",
                     "Rogue Geist",
@@ -1736,12 +1738,6 @@ export class CareerEvents {
                     `Clandestine operatives abduct you, but Nomad Infiltrators puts a bullet in your head before the vivisection begins. Much to your surprise, you wake up in Praxis. You were dead and has became resurrected. You gain an enemy in ${faction.name}.`,
                     "Resurrection"));
             }
-            case 19:
-            case 20:
-                return new CareerEventModel(new EventModel(
-                    "",
-                    "",
-                    ""));
         }
     }
 }

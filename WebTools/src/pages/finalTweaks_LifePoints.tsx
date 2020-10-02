@@ -2,13 +2,9 @@
 import {character} from '../common/character';
 import {Navigation} from '../common/navigator';
 import {PageIdentity, IPageProperties} from './pageFactory';
-import {Attribute, AttributesHelper} from '../helpers/attributes';
-import {Skill, SkillsHelper} from '../helpers/skills';
+import {Skill} from '../helpers/skills';
 import {PageHeader} from '../components/pageHeader';
 import {Button} from '../components/button';
-import {AttributeImprovementCollection, AttributeImprovementCollectionMode} from '../components/attributeImprovement';
-import {UntrainedSkillImprovement} from '../components/untrainedSkillImprovement';
-import {TalentList} from '../components/talentList';
 import {IncreaseInfinityPoints} from '../components/increaseInfinityPoints';
 import {IncreaseAssets} from '../components/increaseAssets';
 import {IncreaseSkills} from '../components/increaseSkills';

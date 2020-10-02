@@ -33,6 +33,7 @@
 .skill-inc-expertise,
 .skill-inc-focus {
     transform: translateY(2px);
+    cursor: pointer;
 }
 
 #signature-skill {

@@ -77,6 +77,9 @@ export class CareerEventPage extends React.Component<IPageProperties, ICareerEve
 
     private rollCareerEvent() {
         var ev = CareerEventsHelper.generateEvent();
+        while (!ev) {
+            ev = CareerEventsHelper.generateEvent();
+        }
         character.careerEvents.push(ev);
         this.setState({ showSelection: false, showEvent: true });
     }

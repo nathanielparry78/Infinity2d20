@@ -60,6 +60,7 @@ input[type=checkbox] {
     border-radius: 4px;
     -webkit-appearance: none;
     -moz-appearance: none;
+    cursor: pointer;
 }
     input[type=radio]:checked,
     input[type=checkbox]:checked {
@@ -129,6 +130,10 @@ a:hover {
 
 .logo {
     margin-top: 4px;
+}
+
+.news {
+    text-align: left;
 }
 
 .option-header {

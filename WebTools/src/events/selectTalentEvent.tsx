@@ -3,7 +3,7 @@ import {character} from '../common/character';
 import {Navigation} from '../common/navigator';
 import {TalentsHelper, TalentModel} from '../helpers/talents';
 import {Button} from '../components/button';
-import {DropDownInput} from '../components/DropDownInput';
+import {DropDownInput} from '../components/dropDownInput';
 import {Skill, SkillsHelper} from '../helpers/skills';
 import {PageIdentity} from '../pages/pageFactory';
 

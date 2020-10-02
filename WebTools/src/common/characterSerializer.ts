@@ -112,7 +112,7 @@ export class CharacterSerializer {
     }
 
     private static serializeEducation(edu: Education) {
-        return EducationsHelper.getEducation(edu).name;
+        return edu ? EducationsHelper.getEducation(edu).name : "";
     }
 
     private static serializeCareers(careers: CharacterCareer[]) {
@@ -234,7 +234,7 @@ export class CharacterSerializer {
         var result = `${adolescenceTrait}`;
 
         careerTraits.forEach(t => {
-            if (t !== undefined && t.length > 0) {
+            if (t && t.length > 0) {
                 result += `|${t}`;
             }
         });
