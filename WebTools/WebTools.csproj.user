@@ -4,7 +4,7 @@
     <UseIISExpress>true</UseIISExpress>
     <NameOfLastUsedPublishProfile>Localhost</NameOfLastUsedPublishProfile>
     <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
-    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <ProjectView>ProjectFiles</ProjectView>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
