@@ -22,6 +22,8 @@ export enum AlienHost {
     UpliftFeline,
     UpliftSimian,
     UpliftSuidae,
+
+    // Aleph
 }
 
 class AlienHostModel {
