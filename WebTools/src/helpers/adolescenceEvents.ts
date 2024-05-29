@@ -152,6 +152,32 @@ export class AdolescenceEvents {
                     break;
             }
         }
+        else if (character.faction === Faction.Aleph && character.hasSource(Source.Aleph)) {
+            switch (table) {
+                case 1:
+                case 2:
+                case 3:
+                    event = this.rollOnAlephTable(ev);
+                    event.table = "ALEPH";
+                    event.eventNumber = ev;
+                    break;
+                case 4:
+                    event = this.rollOnTableA(ev);
+                    event.table = "A";
+                    event.eventNumber = ev;
+                    break;
+                case 5:
+                    event = this.rollOnTableB(ev);
+                    event.table = "B";
+                    event.eventNumber = ev;
+                    break;
+                case 6:
+                    event = this.rollOnTableC(ev);
+                    event.table = "C";
+                    event.eventNumber = ev;
+                    break;
+            }
+        }
         else {
             switch (table) {
                 case 1:
@@ -1828,6 +1854,223 @@ export class AdolescenceEvents {
                     "The Praxis doctors were convinced that they could make you immune to disease. They were correct, after a fashion. The dead don’t exactly catch cold. You died and was resurrected.",
                     "Cynical",
                     "The Praxis doctors were convinced that they could make you immune to disease. They were correct, after a fashion. The dead don’t exactly catch cold. You died and was resurrected.",
+                    "Resurrection"),
+                    () => { });
+            }
+        }
+    }
+
+    private rollOnAlephTable(roll: number): AdolescenceEventModel {
+        switch (roll) {
+            case 1: {
+                const debt = DiceRoller.rollSpecial(7, 7).hits;
+                const faction = FactionsHelper.generateFaction(false, false);
+                const factionName = FactionsHelper.getFaction(faction).name;
+
+                return new AdolescenceEventModel(new EventModel(
+                    `You participated in faction-sponsored research. Increase one Attribute by +1 but gain a ${debt} Asset debt to the ${factionName} faction.`,
+                    "Prototype",
+                    `You participated in faction-sponsored research. You have a ${debt} Asset debt to the ${factionName} faction.`,
+                    "IncreaseOneAttribute"),
+                    () => {
+                    });
+            }
+            case 2: {
+                return new AdolescenceEventModel(new EventModel(
+                    "You kept a secret with disastrous results. Gain 1 rank in Analysis.",
+                    "Cryptophobia",
+                    "You kept a secret with disastrous results.",
+                    "IncreaseAnalysis"),
+                    () => {
+                    });
+            }
+            case 3: {
+                return new AdolescenceEventModel(new EventModel(
+                    "Trying to live up to your hero’s expectations, you wound up hospitalised for a year. What happened? Reduce Vigour by 1 but gain 1 rank in Discipline.",
+                    "Crushing Expectations",
+                    "Trying to live up to your hero’s expectations, you wound up hospitalised for a year. What happened?",
+                    "IncreaseDiscipline"),
+                    () => {
+                        character.vigourReduction++;
+                    });
+            }
+            case 4: {
+                const debt = DiceRoller.rollSpecial(4, 0).hits;
+
+                return new AdolescenceEventModel(new EventModel(
+                    `Living in the shadow of the AI, your geist developed the appearance of crippling self-doubt. You did your best to console it with shiny new tech. Reduce your geist's Resolve by 2 but increase two of its attributes by +2 each. Gain a ${debt} Asset debt.`,
+                    "'Insecure' Geist",
+                    `Living in the shadow of the AI, your geist developed the appearance of crippling self-doubt. You did your best to console it with shiny new tech. You have a ${debt} Asset debt.`,
+                    "IncreaseGeistAttributes2"), // TODO
+                    () => {
+                        character.geist.resolveBonus -= 2;
+                    });
+            }
+            case 5: {
+                return new AdolescenceEventModel(new EventModel(
+                    "The personality of your geist radically shifted overnight. Eventually you realised that it was replaced by one of ALEPH’s Aspects.And it’s got its eye on you. Increase four of your geist's attributes by 1. You may choose Bureau Toth Agent as your first career.",
+                    "Closely Monitored",
+                    "The personality of your geist radically shifted overnight. Eventually you realised that it was replaced by one of ALEPH’s Aspects.And it’s got its eye on you.",
+                    "IncreaseGeistAttributes4"), // TODO
+                    () => {
+                        character.freeCareers.push(Career.BureauTothAgent);
+                    });
+            }
+            case 6: {
+                return new AdolescenceEventModel(new EventModel(
+                    "Confusing the Myrmidon Wars Mayaseries for reality, your geist “heroically” wrecked an expensive remote, leaving you with the bill. Gain a 10 Asset debt. Gain 1 rank in Tech as you learn a thing or two about repairs during this time.",
+                    "Reckless Geist",
+                    "Confusing the Myrmidon Wars Mayaseries for reality, your geist “heroically” wrecked an expensive remote, leaving you with the bill. You have a 10 Asset debt.",
+                    "IncreaseTech"),
+                    () => {
+                    });
+            }
+            case 7: {
+                return new AdolescenceEventModel(new EventModel(
+                    "Through injury, illness, a targeted virus, or some other means, you lost your voice completely. While you’re still capable of real-time text communication, you’re dependent on technology or sign language. You are unable to speak, sing or otherwise make verbal sounds. A cure is possible, but it will cost 5 Assets, or require a new Lhost.",
+                    "Mute",
+                    "Through injury, illness, a targeted virus, or some other means, you lost your voice completely. While you’re still capable of real-time text communication, you’re dependent on technology or sign language. You are unable to speak, sing or otherwise make verbal sounds. A cure is possible, but it will cost 5 Assets, or require a new Lhost."),
+                    () => { });
+            }
+            case 8: {
+                return new AdolescenceEventModel(new EventModel(
+                    "While training for different career paths, you destroyed a small mountain of gear. Gain an 8 Asset debt. At least you learned something: reduce the cost to hazard ALEPH careers by 1.",
+                    "Bull in a China Shop",
+                    "While training for different career paths, you destroyed a small mountain of gear. Gain an 8 Asset debt."),
+                    () => {
+                        character.hazardDecrease++;
+                    });
+            }
+            case 9: {
+                return new AdolescenceEventModel(new EventModel(
+                    "You were betrayed by someone close to you in dramatic fashion. Reduce Resolve by 1 but gain 1 rank in Psychology.",
+                    "Trust Issues",
+                    "You were betrayed by someone close to you in dramatic fashion.",
+                    "IncreasePsychology"),
+                    () => {
+                        character.resolveReduction++;
+                    });
+            }
+            case 10: {
+                return new AdolescenceEventModel(new EventModel(
+                    "ALEPH singles you out as someone with potential. Increase your Social Status by 1.",
+                    "Vainglorious",
+                    "ALEPH singles you out as someone with potential."),
+                    () => {
+                        SocialClassesHelper.increaseSocialClass();
+                    });
+            }
+            case 11: {
+                return new AdolescenceEventModel(new EventModel(
+                    "Whether through faulty psychogenesis, emotional trauma, or other means, you develop a second personality. Choose a talent tree you have no ranks in and gain the first talent. Your alter ego can use this talent, but you cannot. Your social skill tests suffer a +2 difficulty increase due to your unpredictable nature.",
+                    "Split Personality",
+                    "Whether through faulty psychogenesis, emotional trauma, or other means, you develop a second personality. Your alter ego can use this talent, but you cannot. Your social skill tests suffer a +2 difficulty increase due to your unpredictable nature.",
+                    "AlterEgo"),
+                    () => { });
+            }
+            case 12: {
+                return new AdolescenceEventModel(new EventModel(
+                    "In the middle of the night, the AI contacts you directly, asking seemingly random questions about morality, philosophy, and ethics. Departing as suddenly as it arrived, it never acknowledges the event again. Gain the Counselour talent for Psychology.",
+                    "Sympathetic Ear",
+                    "In the middle of the night, the AI contacts you directly, asking seemingly random questions about morality, philosophy, and ethics. Departing as suddenly as it arrived, it never acknowledges the event again."),
+                    () => {
+                        if (!character.hasTalent("Counselour")) {
+                            character.addTalent("Counselour");
+                        }
+                    });
+            }
+            case 13: {
+                return new AdolescenceEventModel(new EventModel(
+                    "Early in your development, you were deemed a failure and all but discarded. Until ALEPH directly intervened on your behalf, that is. Reduce your status by 1. You may roll an ALEPH faction career for free as your first career.",
+                    "Diehard Loyalist",
+                    "Early in your development, you were deemed a failure and all but discarded. Until ALEPH directly intervened on your behalf, that is."),
+                    () => {
+                        character.freeFactionCareerRoll++;
+                    });
+            }
+            case 14: {
+                return new AdolescenceEventModel(new EventModel(
+                    "One of your mentors disappears without warning, leaving you an encrypted message. What will trigger its activation? Increase your Resolve by 1.",
+                    "Vengeful",
+                    "One of your mentors disappears without warning, leaving you an encrypted message. What will trigger its activation?"),
+                    () => {
+                        character.resolveReduction--;
+                    });
+            }
+            case 15: {
+                const years = Math.floor(Math.random() * 6) + 1;
+
+                return new AdolescenceEventModel(new EventModel(
+                    `Your thrill-seeking ways eventually caught up to you, about the same time that the cops did. Spend ${years} in jail and gain a criminal record.`,
+                    "Adrenaline Junkie",
+                    `Your thrill-seeking ways eventually caught up to you, about the same time that the cops did. You spent ${years} in jail.`),
+                    () => {
+                        character.hasCriminalRecord = true;
+                        character.age += years;
+                    });
+            }
+            case 16: {
+                return new AdolescenceEventModel(new EventModel(
+                    "Disaster struck, but it narrowly missed you as a Sophotect dragged you to safety. Gain +1 Resolve. You may take Sophotect as your first career.",
+                    "Hero Worship",
+                    "Disaster struck, but it narrowly missed you as a Sophotect dragged you to safety."),
+                    () => {
+                        character.resolveReduction--;
+                        character.freeCareers.push(Career.Sophotect);
+                    });
+            }
+            case 17: {
+                return new AdolescenceEventModel(new EventModel(
+                    "You were chosen to represent ALEPH in a competition, but were disqualified for cheating. What was the charge? Was it fair? Your social skills suffer a +1 complication range with members of the ALEPH faction.",
+                    "Shortcut-Prone",
+                    "You were chosen to represent ALEPH in a competition, but were disqualified for cheating. What was the charge? Was it fair? Your social skills suffer a +1 complication range with members of the ALEPH faction."),
+                    () => { });
+            }
+            case 18: {
+                return new AdolescenceEventModel(new EventModel(
+                    "You were the target of a nanovirus. It was contained, if barely, but your system still bears the scars. Increase your Firewall by 1. However, add +1 complication range to all your actions for every Breach you currently have.",
+                    "Digital Scar",
+                    "You were the target of a nanovirus. It was contained, if barely, but your system still bears the scars. Add +1 complication range to all your actions for every Breach you currently have."),
+                    () => {
+                        character.firewallReduction--;
+                    });
+            }
+            case 19: {
+                let faction = FactionsHelper.generateFaction(false, false);
+                let doubleAgent = faction === Faction.Defection;
+                while (faction === Faction.Aleph || faction === Faction.Defection) {
+                    faction = FactionsHelper.generateFaction(true, true);
+                }
+                let factionName = FactionsHelper.getFaction(faction).name;
+
+                if (doubleAgent) {
+                    return new AdolescenceEventModel(new EventModel(
+                        `Your entire existence, you never truly questioned the AI’s motives. A mysterious stranger challenged you to do just that; your answers surprised you. You are a double agent, working inside ${factionName}.`,
+                        "Rogue Asset",
+                        `Your entire existence, you never truly questioned the AI’s motives. A mysterious stranger challenged you to do just that; your answers surprised you. You are a double agent, working inside ${factionName}.`),
+                        () => {
+                            character.hasDefected = true;
+                            character.heritage = character.faction;
+                            character.faction = faction;
+                        });
+                }
+                else {
+                    return new AdolescenceEventModel(new EventModel(
+                        `Your entire existence, you never truly questioned the AI’s motives. A mysterious stranger challenged you to do just that; your answers surprised you. You defect to ${factionName}.`,
+                        "Rogue Asset",
+                        `Your entire existence, you never truly questioned the AI’s motives. A mysterious stranger challenged you to do just that; your answers surprised you. You defect to ${factionName}.`),
+                        () => {
+                            character.hasDefected = true;
+                            character.heritage = character.faction;
+                            character.faction = faction;
+                        });
+                }
+            }
+            case 20: {
+                return new AdolescenceEventModel(new EventModel(
+                    "A Psychosanitary Risk Evaluator declares you unstable, ordering a Cube wipe and memory rollback. But when you wake up in your new Lhost, you remember everything.",
+                    "Glitchy Cube",
+                    "A Psychosanitary Risk Evaluator declares you unstable, ordering a Cube wipe and memory rollback. But when you wake up in your new Lhost, you remember everything.",
                     "Resurrection"),
                     () => { });
             }
